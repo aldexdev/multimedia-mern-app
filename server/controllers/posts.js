@@ -1,6 +1,8 @@
 /* LISTS OF CALLBACK FUNCTIONS */
 /* They gonna be executed while the associated router is called */
 
+import mongoose from "mongoose";
+
 import PostMessage from "../models/postMessage.js";
 
 // get all posts
@@ -24,4 +26,18 @@ export const createPost = async (req, res) => {
   } catch (error) {
     res.status(409).json({ message: error.message });
   }
+};
+
+export const updatePost = async (req, res) => {
+  const { id: _id } = req.params;
+  const post = req.body;
+  if (!mongoose.Types.ObjectId.isValid(_id)) {
+    return res.status(404).send("No post found!");
+  }
+  const updatedPost = await PostMessage.findByIdAndUpdate(
+    _id,
+    { ...post, _id },
+    { new: true }
+  );
+  res.json(updatedPost);
 };

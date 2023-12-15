@@ -7,14 +7,14 @@ import postRotes from "./routes/posts.js";
 
 const app = express();
 
-// prefix posts in all routes in postRoutes
-app.use("/posts", postRotes);
-
 // config to properly send the req
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 
 app.use(cors());
+
+// prefix posts in all routes in postRoutes
+app.use("/posts", postRotes);
 
 const CONNECTION_URL =
   "mongodb+srv://aldexdev:Aa12%40marzo@tfg.eqmku4d.mongodb.net/?retryWrites=true&w=majority";
