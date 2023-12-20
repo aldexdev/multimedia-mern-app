@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Card,
   CardActions,
@@ -10,7 +10,7 @@ import {
 } from "@material-ui/core/";
 import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
 import DeleteIcon from "@material-ui/icons/Delete";
-import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
+import EditIcon from "@material-ui/icons/Edit";
 import ThumbUpAltOutlined from "@material-ui/icons/ThumbUpAltOutlined";
 import { useDispatch } from "react-redux";
 import moment from "moment";
@@ -24,23 +24,34 @@ const Post = ({ post, setCurrentId }) => {
   const classes = useStyles();
   const user = JSON.parse(localStorage.getItem("profile"));
   const history = useHistory();
+  const [likes, setLikes] = useState(post?.likes);
+
+  const userId = user?.result?._id;
+  const hasLikedPost = likes.find((like) => like === userId);
+
+  const handleLike = async () => {
+    dispatch(likePost(post._id));
+    if (hasLikedPost) {
+      setLikes(likes.filter((id) => id !== userId));
+    } else {
+      setLikes([...likes, userId]);
+    }
+  };
 
   const Likes = () => {
-    if (post?.likes?.length > 0) {
-      return post.likes.find(
-        (like) => like === (user?.id || user?.result?._id)
-      ) ? (
+    if (likes.length > 0) {
+      return likes.find((like) => like === (user?.id || user?.result?._id)) ? (
         <>
           <ThumbUpAltIcon fontSize="small" />
           &nbsp;
-          {post.likes.length > 2
-            ? `You and ${post.likes.length - 1} others`
-            : `${post.likes.length}`}
+          {likes.length > 2
+            ? `You and ${likes.length - 1} others`
+            : `${likes.length}`}
         </>
       ) : (
         <>
           <ThumbUpAltOutlined fontSize="small" />
-          &nbsp;{post.likes.length}
+          &nbsp;{likes.length}
         </>
       );
     }
@@ -90,7 +101,7 @@ const Post = ({ post, setCurrentId }) => {
               style={{ color: "white" }}
               size="small"
             >
-              <MoreHorizIcon fontSize="medium" />
+              <EditIcon fontSize="medium" />
             </Button>
           </div>
         )}
@@ -118,7 +129,7 @@ const Post = ({ post, setCurrentId }) => {
           size="small"
           color="primary"
           disabled={!user}
-          onClick={() => dispatch(likePost(post._id))}
+          onClick={handleLike}
         >
           <Likes />
         </Button>

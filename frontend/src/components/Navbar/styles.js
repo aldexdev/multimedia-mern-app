@@ -21,6 +21,7 @@ export default makeStyles((theme) => ({
     fontWeight: 300,
   },
   image: {
+    marginLeft: "10px",
     marginRight: "15px",
     marginTop: "5px",
   },
