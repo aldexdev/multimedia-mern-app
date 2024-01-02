@@ -17,4 +17,8 @@ export default makeStyles((theme) => ({
       flexDirection: "column-reverse",
     },
   },
+  cam: {
+    marginTop: "1rem",
+    padding: "16px",
+  },
 }));

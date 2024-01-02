@@ -7,6 +7,7 @@ import {
   TextField,
   Button,
   Paper,
+  Box,
 } from "@material-ui/core";
 import { useDispatch } from "react-redux";
 import { useHistory, useLocation } from "react-router-dom";
@@ -15,6 +16,7 @@ import ChipInput from "material-ui-chip-input";
 import { getPostsBySearch } from "../../actions/posts";
 import Posts from "../Posts/Posts";
 import Form from "../Form/Form";
+import Cam from "../Cam/Cam";
 import Pagination from "../Pagination/Pagination";
 import useStyles from "./styles";
 
@@ -109,6 +111,9 @@ const Home = () => {
                 <Pagination page={page} />
               </Paper>
             )}
+            <Box className={classes.cam}>
+              <Cam />
+            </Box>
           </Grid>
         </Grid>
       </Container>
