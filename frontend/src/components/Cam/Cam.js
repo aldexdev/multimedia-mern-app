@@ -90,7 +90,6 @@ function Cam({ change }) {
           const confidence = gesture.gestures.map(
             (prediction) => prediction.score
           );
-          // console.log(gesture.gestures);
           const maxConfidence = confidence.indexOf(
             Math.max.apply(null, confidence)
           );
