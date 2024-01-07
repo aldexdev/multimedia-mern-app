@@ -18,7 +18,7 @@ app.use(
   cors({
     origin: ["http://memories-tfg.vercel.app"],
     methods: ["GET", "POST", "PATCH", "DELETE"],
-    CREDENTIALS: true,
+    credentials: true,
   })
 );
 
