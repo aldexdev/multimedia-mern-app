@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 
 app.use(
   cors({
-    origin: [""],
+    origin: ["https://memories-tfg.vercel.app"],
     methods: ["GET", "POST", "PATCH", "DELETE"],
     CREDENTIALS: true,
   })
