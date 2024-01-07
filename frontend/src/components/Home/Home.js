@@ -38,6 +38,12 @@ const Home = () => {
   const [tags, setTags] = useState([]);
   const history = useHistory();
 
+  const [activated, setActivated] = useState(false);
+
+  const activate = () => {
+    setActivated(!activated);
+  };
+
   const searchPost = () => {
     if (search.trim() || tags) {
       dispatch(getPostsBySearch({ search, tags: tags.join(",") }));
@@ -111,9 +117,28 @@ const Home = () => {
                 <Pagination page={page} />
               </Paper>
             )}
-            <Box className={classes.cam}>
-              <Cam />
-            </Box>
+            {!activated ? (
+              <Box className={classes.activateButton}>
+                <Button onClick={activate} variant="contained" color="primary">
+                  Enable Webcam
+                </Button>
+              </Box>
+            ) : (
+              <div>
+                <Box className={classes.activateButton}>
+                  <Button
+                    onClick={activate}
+                    variant="contained"
+                    color="primary"
+                  >
+                    Disable Webcam
+                  </Button>
+                </Box>
+                <Box className={classes.cam}>
+                  <Cam />
+                </Box>
+              </div>
+            )}
           </Grid>
         </Grid>
       </Container>

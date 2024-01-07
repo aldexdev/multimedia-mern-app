@@ -10,7 +10,7 @@ import {
 export const oneGesture = new GestureDescription("one");
 
 // index
-oneGesture.addCurl(Finger.Index, FingerCurl.NoCurl);
+oneGesture.addCurl(Finger.Index, FingerCurl.NoCurl, 1.0);
 oneGesture.addDirection(Finger.Index, FingerDirection.VerticalUp, 1.0);
 oneGesture.addDirection(Finger.Index, FingerDirection.DiagonalUpLeft, 0.8);
 oneGesture.addDirection(Finger.Index, FingerDirection.DiagonalUpRight, 0.8);

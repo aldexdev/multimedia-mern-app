@@ -10,7 +10,7 @@ import {
 export const thumbsDownGesture = new GestureDescription("thumbs_down");
 
 // thumb
-thumbsDownGesture.addCurl(Finger.Thumb, FingerCurl.NoCurl);
+thumbsDownGesture.addCurl(Finger.Thumb, FingerCurl.NoCurl, 1.0);
 thumbsDownGesture.addDirection(Finger.Thumb, FingerDirection.VerticalDown, 1.0);
 
 thumbsDownGesture.addDirection(

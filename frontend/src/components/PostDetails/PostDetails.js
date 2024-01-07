@@ -35,6 +35,7 @@ const Post = () => {
   if (!post) return null;
 
   const openPost = (_id) => history.push(`/posts/${_id}`);
+
   if (isLoading) {
     return (
       <Paper elevation={6} className={classes.loadingPaper}>
@@ -92,8 +93,9 @@ const Post = () => {
           </Typography>
           <Divider />
           <div className={classes.recommendedPosts}>
-            {recommendedPosts.map(
-              ({ title, name, message, likes, selectedFile, _id }) => (
+            {recommendedPosts
+              .slice(0, 4)
+              .map(({ title, name, message, likes, selectedFile, _id }) => (
                 <div
                   style={{ margin: "20px", cursor: "pointer" }}
                   onClick={() => openPost(_id)}
@@ -113,8 +115,7 @@ const Post = () => {
                   </Typography>
                   <img src={selectedFile} alt="" width="200px" />
                 </div>
-              )
-            )}
+              ))}
           </div>
         </div>
       )}

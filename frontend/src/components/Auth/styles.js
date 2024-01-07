@@ -24,4 +24,18 @@ export default makeStyles((theme) => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
+  cam: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: "1rem",
+    padding: "16px",
+  },
+  activateButton: {
+    display: "flex",
+    justifyContent: "center",
+    marginTop: "1rem",
+    padding: "16px",
+  },
 }));

@@ -10,13 +10,13 @@ import {
 export const victoryGesture = new GestureDescription("victory");
 
 // index
-victoryGesture.addCurl(Finger.Index, FingerCurl.NoCurl);
+victoryGesture.addCurl(Finger.Index, FingerCurl.NoCurl, 1.0);
 victoryGesture.addDirection(Finger.Index, FingerDirection.VerticalUp, 0.9);
 victoryGesture.addDirection(Finger.Index, FingerDirection.DiagonalUpLeft, 1.0);
 victoryGesture.addDirection(Finger.Index, FingerDirection.DiagonalUpRight, 1.0);
 
 // middle
-victoryGesture.addCurl(Finger.Middle, FingerCurl.NoCurl);
+victoryGesture.addCurl(Finger.Middle, FingerCurl.NoCurl, 1.0);
 victoryGesture.addDirection(Finger.Middle, FingerDirection.VerticalUp, 0.9);
 victoryGesture.addDirection(Finger.Middle, FingerDirection.DiagonalUpLeft, 1.0);
 victoryGesture.addDirection(Finger.Index, FingerDirection.DiagonalUpRight, 1.0);

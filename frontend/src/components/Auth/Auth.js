@@ -7,6 +7,7 @@ import {
   Grid,
   Typography,
   Container,
+  Box,
 } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
@@ -14,6 +15,7 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import { signin, signup } from "../../actions/auth";
 import useStyles from "./styles";
 import Input from "./Input";
+import Cam from "../Cam/Cam";
 
 const initialState = {
   firstName: "",
@@ -26,6 +28,7 @@ const initialState = {
 const SignUp = () => {
   const [form, setForm] = useState(initialState);
   const [isSignup, setIsSignup] = useState(false);
+  const [activated, setActivated] = useState(false);
   const dispatch = useDispatch();
   const history = useHistory();
   const classes = useStyles();
@@ -33,6 +36,10 @@ const SignUp = () => {
   // show password logic
   const [showPassword, setShowPassword] = useState(false);
   const handleShowPassword = () => setShowPassword(!showPassword);
+
+  const activate = () => {
+    setActivated(!activated);
+  };
 
   const switchMode = () => {
     setForm(initialState);
@@ -61,7 +68,7 @@ const SignUp = () => {
         <Typography component="h1" variant="h5">
           {isSignup ? "Sign Up" : "Sign In"}
         </Typography>
-        <form className={classes.form} onSubmit={handleSubmit}>
+        <form className={classes.form}>
           <Grid container spacing={2}>
             {isSignup && (
               <>
@@ -104,6 +111,7 @@ const SignUp = () => {
           </Grid>
           <Button
             type="submit"
+            onClick={handleSubmit}
             fullWidth
             variant="contained"
             color="primary"
@@ -122,6 +130,24 @@ const SignUp = () => {
           </Grid>
         </form>
       </Paper>
+      {!activated ? (
+        <Box className={classes.activateButton}>
+          <Button onClick={activate} variant="contained" color="primary">
+            Enable Webcam
+          </Button>
+        </Box>
+      ) : (
+        <div>
+          <Box className={classes.activateButton}>
+            <Button onClick={activate} variant="contained" color="primary">
+              Disable Webcam
+            </Button>
+          </Box>
+          <Box className={classes.cam}>
+            <Cam change={switchMode} submit={handleSubmit} />
+          </Box>
+        </div>
+      )}
     </Container>
   );
 };

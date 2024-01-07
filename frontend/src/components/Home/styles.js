@@ -17,6 +17,12 @@ export default makeStyles((theme) => ({
       flexDirection: "column-reverse",
     },
   },
+  activateButton: {
+    display: "flex",
+    justifyContent: "center",
+    marginTop: "1rem",
+    padding: "16px",
+  },
   cam: {
     marginTop: "1rem",
     padding: "16px",
