@@ -7,6 +7,12 @@ import dotenv from "dotenv";
 import postRoutes from "./routes/posts.js";
 import userRoutes from "./routes/users.js";
 
+const corsOptions = {
+  origin: "http://localhost:3000",
+  credentials: true,
+  optionSuccessStatus: 200,
+};
+
 const app = express();
 dotenv.config();
 
@@ -14,7 +20,7 @@ dotenv.config();
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 
-app.use(cors());
+app.use(cors(corsOptions));
 
 // prefix posts in all routes in postRoutes
 app.use("/posts", postRoutes);
