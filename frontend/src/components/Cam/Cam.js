@@ -77,7 +77,6 @@ function Cam({ change }) {
           thumbsUpGesture,
           loveYouGesture,
           thumbsDownGesture,
-          fistGesture,
           palmGesture,
           oneGesture,
           rightGesture,
