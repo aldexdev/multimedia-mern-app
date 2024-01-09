@@ -12,7 +12,6 @@ import * as actionType from "../../constants/actionTypes";
 // importing gestures
 import { loveYouGesture } from "./gestures/LoveYou";
 import { thumbsDownGesture } from "./gestures/ThumbsDown";
-import { fistGesture } from "./gestures/Fist";
 import { palmGesture } from "./gestures/Palm";
 import { oneGesture } from "./gestures/One";
 import { thumbsUpGesture } from "./gestures/ThumbsUp";
