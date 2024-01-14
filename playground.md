@@ -9,7 +9,7 @@ Se muestran los gestos disponibles y las acciones que relizan dentro del servici
 👈 -> Página anterior
 👉 -> Página siguiente
 
-*Un dedo hacia arriba* -> Abrir detalles de primera publicación
-*Dos dedos hacia arriba* -> Abrir detalles de la segunda publicación
-*Tres dedos hacia arriba* -> Abrir detalles de la tercera publicación
-*Cuatro dedos hacia arriba* -> Abrir detalles de la cuarta publicación
+_Un dedo hacia arriba_ -> Abrir detalles de primera publicación
+_Dos dedos hacia arriba_ -> Abrir detalles de la segunda publicación
+_Tres dedos hacia arriba_ -> Abrir detalles de la tercera publicación
+_Cuatro dedos hacia arriba_ -> Abrir detalles de la cuarta publicación
