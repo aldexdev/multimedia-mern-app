@@ -6,7 +6,7 @@ This project was created for educational purposes as part of an end-of-degree pr
 
 ## How to try the app
 
-To start testing the project the following steps are followed as specified below:
+To start testing the project following steps are followed as specified below after configure the env variables:
 
 1. Go to the server folder:
 
